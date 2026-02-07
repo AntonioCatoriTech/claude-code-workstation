@@ -1,0 +1,34 @@
+# Surefire Test Fixer - Multi-Agent Approach
+
+## Step 1: Analysis Sub-Agent
+Use the `explore` sub-agent to:
+- Read all Surefire XML reports in target/surefire-reports/
+- Parse and summarize test results
+- Categorize failures and skipped tests
+- Create initial analysis report
+
+Prompt: "Explore sub-agent: analyze all Surefire XML reports and create a summary"
+
+## Step 2: Investigation Sub-Agent  
+Use the `research` sub-agent to:
+- Read failing test code
+- Read implementation code
+- Identify root causes
+- Create detailed findings
+
+Prompt: "Research sub-agent: investigate the root cause of each failed test"
+
+## Step 3: Planning (Main Agent)
+Main agent creates fix plan based on:
+- Analysis from explore agent
+- Findings from research agent
+- Prioritization of fixes
+
+## Step 4: Implementation Sub-Agent
+Use `general-purpose` sub-agent for each fix:
+- Implement the code change
+- Run the specific test
+- Verify the fix works
+- Report results
+
+Prompt: "Implement fix #1 from the plan and verify it works"
